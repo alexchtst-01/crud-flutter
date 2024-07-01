@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "506588318374",
+    "project_id": "loglife-24920",
+    "storage_bucket": "loglife-24920.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:506588318374:android:3c894f0944d7dbde718267",
+        "android_client_info": {
+          "package_name": "com.example.loglife"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAVgN3f0b0qjxBgpU949y7-NA1Noj2M3f4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
