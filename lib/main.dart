@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 
+import 'package:loglife/screen/mobile_screen.dart';
+import 'package:loglife/screen/web_screen.dart';
+import 'package:loglife/layout/responsive_layout.dart';
 import 'package:loglife/color.dart';
 
 Future<void> main() async {
@@ -24,7 +27,10 @@ class App extends StatelessWidget {
       theme: ThemeData.dark().copyWith(
         scaffoldBackgroundColor: backgroundColor
       ),
-      home: const Text('data'),
+      home: const ResponsiveLayout(
+        mobileScreenLayout: MobileScreen(), 
+        webScreenLayout: WebScreen(),
+      )
     );
   }
 }
