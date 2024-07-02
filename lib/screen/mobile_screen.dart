@@ -8,7 +8,21 @@ class MobileScreen extends StatefulWidget {
   State<MobileScreen> createState() => _MobileScreenState();
 }
 
-class _MobileScreenState extends State<MobileScreen> {
+class _MobileScreenState extends State<MobileScreen> with TickerProviderStateMixin {
+  late final TabController _tabController;
+
+  @override
+  void initState() {
+    super.initState();
+    _tabController = TabController(length: 3, vsync: this);
+  }
+
+  @override
+  void dispose() {
+    _tabController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -29,13 +43,14 @@ class _MobileScreenState extends State<MobileScreen> {
                 onPressed: () {},
                 icon: const Icon(Icons.account_circle_rounded)),
           ],
-          bottom: const TabBar(
+          bottom: TabBar(
+            controller: _tabController,
             indicatorColor: tabColor,
             indicatorWeight: 2,
             labelColor: tabColor,
             unselectedLabelColor: Colors.grey,
-            labelStyle: TextStyle(fontFamily: 'poppins'),
-            tabs: [
+            labelStyle: const TextStyle(fontFamily: 'poppins'),
+            tabs: const <Widget> [
               Tab(
                 child: Text(
                   'List',
@@ -66,10 +81,17 @@ class _MobileScreenState extends State<MobileScreen> {
             ],
           ),
         ),
+        body: TabBarView(
+          controller: _tabController,
+          children: const <Widget> [
+            Text('List'),
+            Text('Done'),
+            Text('Condition'),
+          ],
+        ),
         floatingActionButton: FloatingActionButton(
           onPressed: () {},
           tooltip: 'add actions',
-          focusColor: Colors.purple[100],
           child: const Icon(
             Icons.add,
           ),
